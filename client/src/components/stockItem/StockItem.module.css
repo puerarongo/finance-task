@@ -1,0 +1,33 @@
+.list__item {
+    display: flex;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.title {
+    min-width: 70px;
+    max-height: 30px;
+    text-align: center;
+    margin-right: 20px;
+    padding: 6px 10px;
+
+    font-size: 20px;
+    border-radius: 5px;
+    background-color: greenyellow;
+    color: #fff; 
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.container__changes {
+    display: flex;
+    flex: 1 1;
+    justify-content: flex-end;
+}
+
+.change__price {
+    margin-right: 20px;
+}

@@ -1,0 +1,19 @@
+{
+  "name": "finance-task",
+  "version": "1.0.0",
+  "description": "We need you to implement a solution to display price tickers data on the UI in realtime.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/puerarongo/finance-task.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/puerarongo/finance-task/issues"
+  },
+  "homepage": "https://github.com/puerarongo/finance-task#readme"
+}
