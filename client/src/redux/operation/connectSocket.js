@@ -15,7 +15,3 @@ export const disconnectSocket = () => dispatch => {
     socket.disconnect();
     dispatch(disconnectStockAction())
 };
-
-export const updateIntervalSocket = interval => async dispatch => {
-    await dispatch(connectSocket(interval));
-};

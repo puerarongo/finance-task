@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { trackedStockAction } from "../../redux/action/trackedStoks-action";
 import styles from "./Monitoring.module.css";
@@ -6,15 +6,16 @@ import styles from "./Monitoring.module.css";
 const Monitoirng = ({ data }) => {
     const dispatch = useDispatch();
     let { trackedStock } = useSelector(state => state.trackedReducer);
+    
 
     //if (trackedStock === undefined) trackedStock = [];
 
-    const checkboxHandler = () => {
+    const checkboxHandler = e => {
+        console.log(e.target)
         const selectedCheckBoxes = document.querySelectorAll('#NASDAQ:checked');
-        //console.log(selectedCheckBoxes)
         const checkedValues = Array.from(selectedCheckBoxes).map(elem => elem.name);
         dispatch(trackedStockAction(checkedValues));
-    }
+    };
     
     return (
         <div className={styles.container}>
@@ -24,11 +25,11 @@ const Monitoirng = ({ data }) => {
                     data.map(({ticker, exchange}, index) => {
                         return <li key={index} className={styles.list__item}>
                             <h3 className={styles.stock__title}>{ticker}</h3>
-                            {trackedStock.includes(ticker) ? (
-                            <input type="checkbox" id={exchange} name={ticker} onChange={checkboxHandler} checked/>
-                            ) : (
-                                <input type="checkbox" id={exchange} name={ticker} onChange={checkboxHandler} />
-                            )}
+                            <label className={styles.checkbox__google}>
+                                <input className={styles.checkbox}
+                                    type="checkbox" id={exchange} name={ticker} onChange={checkboxHandler} />
+                                <span className={styles.checkbox__switch}></span>
+                            </label>
                         </li>
                     })
                 )}

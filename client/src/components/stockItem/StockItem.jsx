@@ -11,7 +11,9 @@ const StockItem = ({data}) => {
                 </div>
                 <div className={styles.container__changes}>
                     <p className={styles.change__price}>{data.change}$</p>
-                    <p>{data.change_percent}%</p>
+                    <p className={styles.change__price}>{data.change_percent}%</p>
+                    <p className={styles.change__price}>{data.dividend}</p>
+                    <p>{data.yield}</p>
                 </div>
             </li>
         </>
