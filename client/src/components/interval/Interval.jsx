@@ -1,7 +1,8 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import PropTypes from 'prop-types';
 import styles from "./Interval.module.css";
 
-const Interval = ({handler}) => {
+const Interval = ({ handler }) => {
     const [interval, setInterval] = useState("");
 
     const inputHandler = e => {
@@ -11,6 +12,9 @@ const Interval = ({handler}) => {
 
     const sumbitHandler = e => {
         e.preventDefault();
+
+
+
         handler(interval * 1000);
         setInterval(() => "");
     };
@@ -18,11 +22,11 @@ const Interval = ({handler}) => {
 
     return (
         <div className={styles.container}>
-            <h2 className={styles.title}>Select quotes update rate in seconds</h2>
+            <h2 className={styles.title}>Select quotes update rate in seconds:</h2>
             <form onSubmit={sumbitHandler}>
                 <input
                     className={styles.input__form}
-                    type="text"
+                    type="number"
                     name="interval"
                     value={interval}
                     onChange={inputHandler}
@@ -31,6 +35,10 @@ const Interval = ({handler}) => {
             </form>
         </div>
     )
+};
+
+Interval.propTypes = {
+    handler: PropTypes.func.isRequired
 };
 
 export default Interval;

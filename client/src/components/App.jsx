@@ -36,7 +36,7 @@ const App = () => {
             <Interval handler={intervalHandler} />
             <Monitoirng data={stock} />
             <ul className={styles.list}>
-            {stock.length > 0 && (
+            {stock.length > 0 && trackedStock.length !== stock.length  ? (
               stock.map((elem, index) => {
                 if (trackedStock.includes(elem.ticker)) {
                   return ""
@@ -46,7 +46,7 @@ const App = () => {
                 }
                 
               })
-            )}
+            ) : (<div className={styles.warning}>There are no stocks you are following!</div>)}
             </ul>
           </>
         )}

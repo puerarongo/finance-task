@@ -1,7 +1,8 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import styles from "./StockItem.module.css";
 
-const StockItem = ({data}) => {
+const StockItem = ({ data }) => {
     return (
         <>
             <li className={styles.list__item}>
@@ -18,6 +19,10 @@ const StockItem = ({data}) => {
             </li>
         </>
     )
+};
+
+StockItem.propTypes = {
+    data: PropTypes.object.isRequired
 };
 
 export default StockItem;
