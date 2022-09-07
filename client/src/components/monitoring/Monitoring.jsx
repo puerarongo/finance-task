@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { trackedStockAction } from "../../redux/action/trackedStoks-action";
 import styles from "./Monitoring.module.css";
@@ -16,6 +16,17 @@ const Monitoirng = ({ data }) => {
         const checkedValues = Array.from(selectedCheckBoxes).map(elem => elem.name);
         dispatch(trackedStockAction(checkedValues));
     };
+
+    const filtred = data.map(elem => {
+        if (trackedStock.includes(elem.ticker)) {
+            return { ticker: elem.ticker, exchange: elem.exchange, active: false }
+        }
+        else {
+            return { ticker: elem.ticker, exchange: elem.exchange, active: true }
+        }
+    });
+
+    console.log(filtred)
     
     return (
         <div className={styles.container}>
